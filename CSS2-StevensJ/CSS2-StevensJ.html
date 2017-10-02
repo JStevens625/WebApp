@@ -1,0 +1,50 @@
+<!--Jacob Stevens COP 3834C.01 Web Application Development CSS-2-->
+<!doctype HTML>
+<html>
+<style>
+  body > p{
+    background-color: yellow;
+  }
+  div > p{
+    background-color: cyan;
+  }
+  div > div{
+    background-color: brown;
+  }
+  div > div > p{
+    background-color: brown;
+  }
+  div + p{
+    background-color: red;
+  }
+  p + p{
+    background-color: green;
+  }
+
+</style>
+<head>
+  <title>Jacob Stevens CSS-2</title>
+</head>
+<body>
+  <p>
+    Here should be yellow
+  </p>
+  <div>
+    <p>
+      Here should be cyan
+    </p>
+    <div>
+      Content of this division should be brown
+      <p>
+        Some text
+      </p>
+    </div>
+    <p>
+      Here should be red
+    </p>
+    <p>
+      Here should be green
+    </p>
+  </div>
+</body>
+</html>

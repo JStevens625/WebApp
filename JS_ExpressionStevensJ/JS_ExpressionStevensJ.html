@@ -1,0 +1,42 @@
+<!--Jacob Stevens COP 3834C.01 Web Application Development 9/26/17 JS_Expression-->
+
+<!doctype html>
+<html>
+<head>
+  <title>Learning Prefix And suffix of ++</title>
+</head>
+<body>
+  <h3 style="color:rgb(158, 0, 0)">Prefixes:<br /></h3>
+  <p id="prefix"></p>
+  <script>
+  var x = 4;
+  var y = 5;
+  var prefixXup = ++x + y;
+  var prefixYup = x + ++y;
+  var prefixXdown = --x + y;
+  var prefixYdown = x + --y;
+  document.getElementById("prefix").innerHTML =
+  "Initially: X = " + x + " and Y = " + y +
+  "<br />"+ "<br />" + "++X + Y = " + prefixXup +
+  "<br />"+ "<br />" + "X + Y++ = " + prefixYup +
+  "<br />"+ "<br />" + "--X + Y = " + prefixXdown +
+  "<br />"+ "<br />" + "X + --Y = " + prefixYdown;
+  </script>
+  <h3 style="color:rgb(0, 6, 159)">Suffixes:<br /></h3>
+  <p id="suffix"></p>
+  <script>
+  var x = 4;
+  var y = 5;
+  var suffixXup = x++ + y;
+  var suffixYup = x + y++;
+  var suffixXdown = x-- + y;
+  var suffixYdown = x + y--;
+  document.getElementById("suffix").innerHTML =
+  "Initially: X = " + x + " and Y = " + y +
+  "<br />"+ "<br />" + "X++ + Y = " + suffixXup +
+  "<br />"+ "<br />" + "X + Y++ = " + suffixYup +
+  "<br />"+ "<br />" + "X-- + Y = " + suffixXdown +
+  "<br />"+ "<br />" + "X + Y-- = " + suffixXdown;
+  </script>
+</body>
+</html>
