@@ -10,18 +10,17 @@ body{
   font-size: 25px;
   font-weight: bold;
   margin-top: 10%;
-  color:rgb(3, 0, 130);
+  color:rgb(200, 183, 67);
+  text-align: center;
 }
 h2{
   text-align: center;
-  color:rgb(180, 0, 0);
+  color:rgb(255, 255, 255);
 }
 #click{
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  position: fixed;
-  left: 50%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 </style>
 <head>
@@ -29,15 +28,35 @@ h2{
 </head>
 <body>
   <h2>Javascript Input/Output</h2>
-  <button id="click" type="button" onclick="nums()">Click to Start <br /></button>
+  <button id="click" type="button" onclick="numbers()">Click to Start <br /></button>
   <p id="Textfield"></p>
+  <p id="Minimum"></p>
     <script>
-    function nums(){
+    function numbers(){
       var nums = [];
       var i = 0;
       while (i<4) {
-        parseInt()
+        nums[i] = parseInt(prompt("Please Enter Number"))
+        i++
       }
+      document.getElementById('Textfield').innerHTML =
+      "First Number = " + nums[0] +
+      "<br />" + "Second Number = " + nums [1] +
+      "<br />" + "Third Number = " + nums [2] +
+      "<br />" + "Fourth Number = " + nums [3];
+      var j = 0;
+      var sum = 0;
+      while (j < 4) {
+        sum += nums[j]
+        j++
+      }
+      var avg = sum/4;
+      alert("The average is: " + avg);
+      nums.sort();
+      var max = nums[3];
+      var min = nums[0];
+      document.write("<p id='Minimum'></p>"+ "Maximum Number = " + max);
+      document.getElementById('Minimum').innerHTML = "Minimum Number = " + min;
 
     }
   </script>
