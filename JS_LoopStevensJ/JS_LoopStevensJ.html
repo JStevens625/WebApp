@@ -1,0 +1,64 @@
+<!--Jacob Stevens COP 3834C.01 Web Application Development 10/9/17 JS_Loop-->
+<!doctype html>
+<html>
+<style>
+body{
+  background-color: rgb(43, 110, 158)
+}
+#Textfield{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10%;
+  color:rgb(200, 183, 67);
+  text-align: center;
+}
+h2{
+  text-align: center;
+  color:rgb(255, 255, 255);
+}
+#click{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+</style>
+<head>
+  <title>JS_IO Jacob Stevens</title>
+</head>
+<body>
+  <h2>Javascript Input/Output</h2>
+  <button id="click" type="button" onclick="numbers()">Click to Start <br /></button>
+  <p id="Textfield"></p>
+  <p id="Minimum"></p>
+    <script>
+    function printarray(){
+      
+    }
+    function numbers(){
+      var nums = [];
+      var i = 0;
+      var n = parseInt(prompt("How many numbers would you like to compare?"))
+      while (i<n) {
+        nums[i] = parseInt(prompt("Please Enter Number"))
+        i++
+      }
+      document.getElementById('Textfield').innerHTML =
+      "Numbers Entered: " +
+      var j = 0;
+      var sum = 0;
+      while (j < 4) {
+        sum += nums[j]
+        j++
+      }
+      var avg = sum/nums.length();
+      alert("The average is: " + avg);
+      nums.sort();
+      var max = nums[3];
+      var min = nums[0];
+      document.write("<p id='Minimum'></p>"+ "Maximum Number = " + max);
+      document.getElementById('Minimum').innerHTML = "Minimum Number = " + min;
+
+    }
+  </script>
+</body>
+</html>
