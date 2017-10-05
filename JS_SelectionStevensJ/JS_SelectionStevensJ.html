@@ -2,9 +2,40 @@
 <!doctype html>
 <html>
 <style>
-
+body{
+  background-color: rgb(20, 72, 134);
+}
+h2{
+  color: rgb(167, 34, 142);
+  text-align: center;
+}
+#abutton{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+#Textfield{
+  color: rgb(149, 136, 9);
+  text-align: center;
+}
 </style>
 <head>
   <title>Javascript Loop Jacob Stevens</title>
 </head>
+<body>
+  <h2>Javascript Musketeers</h2>
+  <button id="abutton" type="button" onclick="musketeers()">Click to Start <br /></button>
+  <p id="Textfield"></p>
+  <p id="Minimum"></p>
+    <script>
+    function musketeers(){
+      var i = parseInt(prompt("Please Enter a Number From 1 to 4"));
+      while (i < 1 || i > 4) {
+        var k = parseInt(prompt("Please Enter a Number ONLY From 1 to 4"));
+        i = k
+      }
+      document.getElementById('Textfield').innerHTML = i;
+    }
+  </script>
+</body>
 </html>
