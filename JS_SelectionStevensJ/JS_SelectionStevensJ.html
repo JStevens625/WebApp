@@ -9,14 +9,18 @@ h2{
   color: rgb(167, 34, 142);
   text-align: center;
 }
-#abutton{
+.abutton{
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
 #Textfield{
-  color: rgb(149, 136, 9);
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(200, 183, 67);
   text-align: center;
+
 }
 </style>
 <head>
@@ -24,18 +28,45 @@ h2{
 </head>
 <body>
   <h2>Javascript Musketeers</h2>
-  <button id="abutton" type="button" onclick="musketeers()">Click to Start <br /></button>
+  <button class="abutton" type="button" onclick="musketeersswitch()">Switch Statement<br /></button>
+  <br />
+  <br />
+  <button class="abutton" type="button" onclick="musketeersifelse()">If-Else<br /></button>
   <p id="Textfield"></p>
-  <p id="Minimum"></p>
     <script>
-    function musketeers(){
+    var muskets = ["Athros","Aramis","Porthos","D'Artagnan"];
+    var selection;
+    function musketeersswitch(){
       var i = parseInt(prompt("Please Enter a Number From 1 to 4"));
-      while (i < 1 || i > 4) {
-        var k = parseInt(prompt("Please Enter a Number ONLY From 1 to 4"));
-        i = k
+      switch (i) {
+        case 1:
+          selection = "You have picked " + muskets[0];
+          break;
+        case 2:
+          selection = "You have picked " + muskets[1];
+          break;
+        case 3:
+          selection = "You have picked " + muskets[2];
+          break;
+        case 4:
+          selection = "You have picked " + muskets[3];
+          break;
+        default:
+          selection = "You have picked Nobody"
+          break;
       }
-      document.getElementById('Textfield').innerHTML = i;
+      document.getElementById('Textfield').innerHTML = selection;
     }
+    function musketeersifelse(){
+      var i = parseInt(prompt("Please Enter a Number From 1 to 4"));
+        if (i >= 1 && i <= 4) {
+          selection = "You have picked " + muskets[i-1];
+        }
+        else {
+          selection = "You have picked Nobody";
+        }
+        document.getElementById('Textfield').innerHTML = selection;
+      }
   </script>
 </body>
 </html>
