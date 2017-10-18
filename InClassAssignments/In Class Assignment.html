@@ -1,0 +1,57 @@
+<html>
+<style>
+body {
+  background-color: rgb(25, 94, 0);
+}
+
+h2 {
+  color: rgb(99, 0, 81);
+  text-align: center;
+}
+#abutton {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#Chose {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(136, 120, 9);
+  text-align: center;
+}
+
+#Textfield {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(110, 0, 0);
+  text-align: left;
+}
+</style>
+<body>
+  <h2>Javascript Functions</h2>
+  <button id="abutton" type="button" onclick="init()">Click to Start<br /></button>
+  <p id="Textfield"></p>
+</body>
+<script>
+var fibarray = [0,1]
+function init(){
+  clear();
+  var i = parseInt(prompt("Please choose a number"))
+  fibonacci(i);
+  document.getElementById("Textfield").innerHTML = fibarray;
+}
+function fibonacci(num){
+  for (var i = 1; i < num; i++) {
+    var j = fibarray[i] +fibarray[i-1];
+    fibarray.push(j);
+  }
+}
+function clear(){
+  fibarray = [0,1];
+  document.getElementById("Textfield").innerHTML = "";
+}
+</script>
+</html>
