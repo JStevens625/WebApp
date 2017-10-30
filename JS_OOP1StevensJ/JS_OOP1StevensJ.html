@@ -1,37 +1,64 @@
 <!--Jacob Stevens COP 3834C.01 Web Application Development 10/30/17 JS_OOP1-->
 <!doctype html>
-
 <html>
 <style>
 body{
   background-color: rgb(43, 110, 158)
 }
-#Textfield{
+#Display{
   font-size: 25px;
   font-weight: bold;
   margin-top: 10px;
   color: rgb(200, 183, 67);
   text-align: center;
 }
+#Start{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(47, 186, 34);
+  text-align: center;
+}
+#abutton{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 </style>
 <head>
   <title>Jacob Stevens OOP 1</title>
 </head>
 <body>
-<p id="Textfield"></p>
+<button id="abutton" type="button" onclick="car.clear()">Click to Start</button>
+<p id="Display"></p>
+<p id="Start"></p>
 <script>
-
 var car = {
-  Color: "Red"
-  Model: "Honda Civic"
-  Engine: Math.random()+100 * 200;
+  Color: "Red",
+  Model: "Honda Civic",
+  Engine: 0,
+  tankSize: 0,
+  starting: 0,
+  clear: function(){
+    document.getElementById("Display").innerHTML = "";
+    document.getElementById("Start").innerHTML = "";
+    car.Engine = Math.round(Math.random() * 200 + 100),
+    car.tankSize = Math.round(Math.random() * 30 + 10),
+    car.starting = Math.round(Math.random() * 100 + 20),
+    car.display();
+  },
   display: function(){
-    document.getElementById("Textfield").innerHTML = Engine;
+    document.getElementById("Display").innerHTML = "Properties of car: <br />" +
+    "Color: " + car.Color + "<br />" +
+    "Model: " + car.Model + "<br />" +
+    "Engine: " + car.Engine + "<br />" +
+    "Tank size: " + car.tankSize;
+    car.start();
+  },
+  start: function(){
+    document.getElementById("Start").innerHTML ="Car starting in: " + car.starting + " Seconds";
   }
 }
-</script>
-<script>
-function computer()
 </script>
 </body>
 </html>
