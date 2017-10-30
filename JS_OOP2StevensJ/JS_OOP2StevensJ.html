@@ -12,7 +12,7 @@ body{
   color: rgb(200, 183, 67);
   text-align: center;
 }
-#Start{
+#eat{
   font-size: 25px;
   font-weight: bold;
   margin-top: 10px;
@@ -31,7 +31,7 @@ body{
 <body>
 <button id="abutton" type="button" onclick="car.clear()">Click to Start</button>
 <p id="Display"></p>
-<p id="Start"></p>
+<p id="eat"></p>
 <script>
 var Alligator = {
   display: function(length, age, name, speed){
@@ -39,6 +39,14 @@ var Alligator = {
     this.age = parseInt(age);
     this.length = parseInt(length);
     this.speed = parseInt(speed);
+    document.getElementById("Display").innerHTML = "Properties of Alligator: <br />" +
+    "Length: " + this.length + "<br />" +
+    "Age: " + this.age + "<br />" +
+    "Name: " + this.name + "<br />" +
+    "Speed: " + this.speed;
+  }
+  eat: function(){
+    
   }
 }
 </script>
