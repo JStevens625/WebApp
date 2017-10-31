@@ -5,11 +5,18 @@
 body{
   background-color: rgb(43, 110, 158)
 }
-#Display{
+#Display1{
   font-size: 25px;
   font-weight: bold;
   margin-top: 10px;
   color: rgb(200, 183, 67);
+  text-align: center;
+}
+#Display2{
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(22, 163, 32);
   text-align: center;
 }
 #abutton{
@@ -22,32 +29,55 @@ body{
   <title>Jacob Stevens OOP 1</title>
 </head>
 <body>
-<button id="abutton" type="button" onclick="Alligator.init()">Click to Start</button>
-<p id="Display"></p>
+<button id="abutton" type="button" onclick="init()">Click to Start</button>
+<p id="Display1"></p>
+<br />
+<p id="Display2"></p>
 <script>
-var Alligator = {
-  arr: ["Fish", "Snails", "Crustaceans", "Worms"],
-  display: function(length, age, name, speed){
-    this.name = name;
-    this.age = parseInt(age);
-    this.length = parseInt(length);
-    this.speed = parseInt(speed);
-    document.getElementById("Display").innerHTML = "Properties of Alligator: <br />" +
-    "Length: " + this.length + "<br />" +
-    "Age: " + this.age + "<br />" +
-    "Name: " + this.name + "<br />" +
-    "Speed: " + this.speed + "<br />" +
-    Alligator.eat();
-  },
-  eat: function(){
-    return Alligator.arr;
-  },
-  init: function(){
-    var Al1 = new Alligator(){
-      Alligator.display(10,13,Steve,12);
-    }
-  }
+var gator1 = new Alligator();
+var gator2 = new Alligator();
+var arr = ["Fish"," Snails"," Crustaceans"," Worms"];
+function Alligator(length, age, name, speed) {
+  this.name = name;
+  this.age = parseInt(age);
+  this.length = parseInt(length);
+  this.speed = parseInt(speed);
 }
+ function display1(){
+    document.getElementById("Display1").innerHTML = "Properties of Alligator 1: <br />" +
+    "Length: " + gator1.length + "<br />" +
+    "Age: " + gator1.age + "<br />" +
+    "Name: " + gator1.name + "<br />" +
+    "Speed: " + gator1.speed + "<br />" +
+    "Food: " + eat();
+  }
+ function display2(){
+    document.getElementById("Display2").innerHTML = "Properties of Alligator 2: <br />" +
+    "Length: " + gator2.length + "<br />" +
+    "Age: " + gator2.age + "<br />" +
+    "Name: " + gator2.name + "<br />" +
+    "Speed: " + gator2.speed + "<br />" +
+    "Food: " + eat();
+}
+ function eat(){
+    return arr;
+  }
+ function init(){
+
+    gator1.length = 10;
+    gator1.age = 12;
+    gator1.name = "Alliegator";
+    gator1.speed = 5;
+
+
+    gator2.length = 7;
+    gator2.age = 13;
+    gator2.name = "Arniegator";
+    gator2.speed = 7;
+
+    display1(gator1);
+    display2(gator2);
+  }
 </script>
 </body>
 </html>
