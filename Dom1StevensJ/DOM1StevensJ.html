@@ -66,19 +66,16 @@ button{
 var arr = document.getElementsByTagName('TD');
 var len = arr.length;
 function f1(){
-//0 to 2, 2 to 4, 4 to 6, 6 to 1, 1 to 3, 3 to 5, 5 to 7, 7 to 0check
-  for (var i = 0; i < arr.length; i++) {
-    if (i == len-1) {
-      arr[0].innerHTML = arr[i].innerHTML
-    }
-    else if (i == len-2) {
-      arr[1].innerHTML = arr[i].innerHTML
-    }
-    else {
-      var temp = arr[i+2];
-      arr[i+2].innerHTML = arr[i].innerHTML
-    }
+//0 to 2, 2 to 4, 4 to 6, 6 to 1, 1 to 3, 3 to 5, 5 to 7, 7 to 0
+  var i = len-1
+  var lastele2ndcol = arr[len-1].innerHTML
+  var lastele1stcol = arr[len-2].innerHTML
+  while (i > 1) {
+    arr[i].innerHTML = arr[i-2].innerHTML
+    i--
   }
+  arr[0].innerHTML = lastele2ndcol;
+  arr[1].innerHTML = lastele1stcol
 }
 </script>
 </html>
