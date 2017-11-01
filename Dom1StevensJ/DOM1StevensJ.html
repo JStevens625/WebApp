@@ -13,6 +13,7 @@ td{
   margin-right: auto;
   margin-left: auto;
   border: 2px solid red;
+  color:white;
 }
 button{
   display: block;
@@ -29,20 +30,12 @@ button{
       A
     </td>
     <td>
-      B
-    </td>
-  </tr>
-  <tr>
-    <td>
-      C
-    </td>
-    <td>
-      D
-    </td>
-  </tr>
-  <tr>
-    <td>
       E
+    </td>
+  </tr>
+  <tr>
+    <td>
+      B
     </td>
     <td>
       F
@@ -50,7 +43,15 @@ button{
   </tr>
   <tr>
     <td>
+      C
+    </td>
+    <td>
       G
+    </td>
+  </tr>
+  <tr>
+    <td>
+      D
     </td>
     <td>
       H
@@ -58,13 +59,26 @@ button{
   </tr>
 </table>
 <br /> <br /> <br />
-<button>Rotate</button>
-<p id="test"></p>
+<button onclick="f1()">Rotate</button>
+<p id="demo"></p>
 </body>
 <script>
-var arr = [];
+var arr = document.getElementsByTagName('TD');
+var len = arr.length;
 function f1(){
-  
+//0 to 2, 2 to 4, 4 to 6, 6 to 1, 1 to 3, 3 to 5, 5 to 7, 7 to 0check
+  for (var i = 0; i < arr.length; i++) {
+    if (i == len-1) {
+      arr[0].innerHTML = arr[i].innerHTML
+    }
+    else if (i == len-2) {
+      arr[1].innerHTML = arr[i].innerHTML
+    }
+    else {
+      var temp = arr[i+2];
+      arr[i+2].innerHTML = arr[i].innerHTML
+    }
+  }
 }
 </script>
 </html>
