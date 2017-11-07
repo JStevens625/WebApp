@@ -12,7 +12,7 @@ p{
 #calc{
   margin-left: 4cm;
 }
-#len{
+#length{
   margin-left: 14mm;
 }
 #last{
@@ -24,21 +24,31 @@ p{
 </head>
 <body>
   <p>
-    Start Number 1: <input id="start1" />
+    Start Number 1: <input id="start1" type="number"/>
   </p>
   <p>
-    Start Number 2: <input id="start2" />
+    Start Number 2: <input id="start2" type="number"/>
   </p>
   <p>
-    Length: <input id="len" />
+    Length: <input id="length"/>
   </p>
   <p>
-    Last Fibonacci: <input id="last" />
+    Last Fibonacci: <input id="last" type="number"/>
   </p>
-  <button id="calc">Calculate</button>
+  <button id="calc" onclick="fib()">Calculate</button>
   <script>
-    for (var i = 0; i < ; i++) {
-
+    var num1 = parseInt(document.getElementById("start1").value);
+    var num2 = parseInt(document.getElementById("start2").value);
+    var len = parseInt(document.getElementById("length").value);
+    var lastfib = parseInt(document.getElementById("last").value);
+    var arr = [num1, num2]
+    var i;
+    function fib() {
+      for (i = 2; i < len; i++) {
+        arr[i] = arr[i-1] + arr[i-2]
+      }
+      lastfib = arr[i];
+      
     }
   </script>
 </body>
