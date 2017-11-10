@@ -7,26 +7,28 @@ body{
 #fruit{
   color: white;
   font-size: 30;
+  font-weight: bold;
 }
 li{
   color: white;
   font-size: 20
 }
-table{
+td{
   color: white;
   border: solid white 3px;
   font-size: 25;
 }
 button{
   display: block;
-  margin: auto;
+}
+#test{
+  color: white;
 }
 </style>
 <head>
   <title>Jacob Stevens DOM 2</title>
 </head>
 <body>
-  <p id="test"></p>
 <p id="fruit">
   Fruits: <br />
   <ul id="list">
@@ -41,7 +43,7 @@ button{
     </li>
   </ul>
 </p>
-<table>
+<table id="table">
   <tr>
     <td>
       Orlando
@@ -59,15 +61,50 @@ button{
     </td>
   </tr>
 </table>
+<br />
+<br />
 <button type="button" name="button" onclick="init()">Change</button>
 </body>
 <script>
+var listarr = [];
+var tablearr = [];
+var tablelen = document.getElementsByTagName('TD').length;
+var listlen = document.getElementsByTagName('LI').length;
+
+
+for (var i = 0; i < listlen; i++) {
+  var a = document.getElementsByTagName('LI')[i].innerHTML;
+  listarr.push(a);
+}
+for (var i = 0; i < tablelen; i++) {
+  var b = document.getElementsByTagName('TD')[i].innerHTML;
+  tablearr.push(b);
+}
+
 function init(){
-  var listitems = document.getElementsByTagName('li');
-  var arr = [listitems];
-  for (var i = 0; i < arr.length; i++) {
-  document.getElementById("test").innerHTML += arr[i];
+  //Change List Begin
+  var rmul = document.getElementById("list");
+  var fruitp = document.getElementById("fruit")
+  var rmtd = document.getElementById("table");
+  for(var i = 1; i < listlen + 1; i++){
+    rmul.removeChild(rmul.childNodes[i]);
   }
+  fruitp.innerHTML = "Fruits: " + listarr;
+  //Change List End
+  //Change Table Begin
+  for(var i = 1; i < tablelen - 2; i++){
+    rmtd.removeChild(rmtd.childNodes[i]);
+  }
+  var tablereplace = document.createElement('ol');
+  document.body.appendChild(tablereplace);
+  var ol1 = document.createElement('li');
+  var ol2 = document.createElement('li');
+  ol1.innerHTML = tablearr[0] + ": " + tablearr[1];
+  ol2.innerHTML = tablearr[2] + ": " + tablearr[3];
+  tablereplace.appendChild(ol1);
+  tablereplace.appendChild(ol2);
+
+  //Change Table End
 }
 </script>
 </html>
