@@ -1,0 +1,24 @@
+<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 XML1-->
+<?xml version="1.0" encoding="UTF-8"?>
+<Dinner_Menu>
+  <Appetizer>
+    <app1>
+    </app1>
+    <app2>
+    </app2>
+  </Appetizer>
+  <Main_Course>
+    <mc1>
+    </mc1>
+    <mc2>
+    </mc2>
+    <mc3>
+    </mc3>
+  </Main_Course>
+  <Dessert>
+    <d1>
+    </d1>
+    <d2>
+    </d2>
+  </Dessert>
+</Dinner_Menu>
