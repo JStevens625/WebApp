@@ -1,24 +1,22 @@
-<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 XML1-->
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 XML1-->
 <Dinner_Menu>
+  <Salad>
+    <s>Caesar Salad</s>
+    <s>Grilled Chicken Salad</s>
+    <s>AntiPasta Salad</s>
+  </Salad>
   <Appetizer>
-    <app1>
-    </app1>
-    <app2>
-    </app2>
+    <app>Calamari</app>
+    <app>Fried Mozzerella</app>
   </Appetizer>
   <Main_Course>
-    <mc1>
-    </mc1>
-    <mc2>
-    </mc2>
-    <mc3>
-    </mc3>
+    <mc>Lobster</mc>
+    <mc>Chicken Penne</mc>
+    <mc>Chicken Alfredo</mc>
   </Main_Course>
   <Dessert>
-    <d1>
-    </d1>
-    <d2>
-    </d2>
+    <d>Ice-Cream</d>
+    <d>Chocolate Cake Shake</d>
   </Dessert>
 </Dinner_Menu>
