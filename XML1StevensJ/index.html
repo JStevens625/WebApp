@@ -1,13 +1,35 @@
 <!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 XML1-->
 <!doctype html>
 <html>
+<style>
+body{
+  background-color: rgb(68, 0, 0);
+}
+p{
+  color: white;
+}
+</style>
 <head>
   <title>XML 1 Jacob Stevens</title>
 </head>
 <body>
+  <p>
+    <b>The following text is recieved from the XML File:</b>
+  </p>
+  <br />
+  <button onclick="init()">XML Load Button</button>
+  <p id="xmltext"></p>
   <script>
     function init(){
-      
+      var xmlreq = new XMLHttpRequest();
+      xmlreq.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200){
+          document.getElementById("xmltext").innerHTML =
+          this.responseText;
+        }
+      }
+      xmlreq.open("GET", "./XML1StevensJ.xml", true);
+      xmlreq.send();
     }
   </script>
 </body>
