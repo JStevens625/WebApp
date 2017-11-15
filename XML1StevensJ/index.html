@@ -5,20 +5,24 @@
 body{
   background-color: rgb(68, 0, 0);
 }
-p{
+#intro{
   color: white;
+}
+#xmltext{
+  color: white;
+  font-family: times;
 }
 </style>
 <head>
   <title>XML 1 Jacob Stevens</title>
 </head>
 <body>
-  <p>
+  <p id="intro">
     <b>The following text is recieved from the XML File:</b>
   </p>
   <br />
   <button onclick="init()">XML Load Button</button>
-  <p id="xmltext"></p>
+  <pre id="xmltext"></pre>
   <script>
     function init(){
       var xmlreq = new XMLHttpRequest();
