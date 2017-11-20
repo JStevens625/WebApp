@@ -1,1 +1,54 @@
-<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 11:27 PM XML1-->
+<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 11:27 PM XML3-->
+<!doctype html>
+<html>
+<style>
+  body {
+    background-color: rgb(68, 0, 0);
+  }
+
+  #intro {
+    color: white;
+  }
+
+  #xmltext {
+    color: white;
+    font-family: times;
+  }
+  button{
+    display: block;
+    margin: auto;
+  }
+</style>
+
+<head>
+  <title>XML 3 Jacob Stevens</title>
+</head>
+
+<body>
+  <button onclick="init()">Change XML</button>
+  <pre id="xmltext"></pre>
+  <script>
+    var xmlreq = new XMLHttpRequest();
+    xmlreq.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("xmltext").innerHTML =
+          this.responseText;
+      }
+    }
+    xmlreq.open("GET", "./breakfast.xml", true);
+    xmlreq.send();
+
+    function init() {
+      changefirst();
+      increase10();
+    }
+    function changefirst(){
+      var
+    }
+    function increase10(){
+
+    }
+  </script>
+</body>
+
+</html>
