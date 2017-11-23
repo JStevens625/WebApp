@@ -1,1 +1,83 @@
-<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 11:27 PM XML1-->
+<!--Jacob Stevens COP 3834C.01 Web Application Development 11/14/17 11:27 PM XML2-->
+<!doctype html>
+<html>
+<style>
+  body {
+    background-color: rgb(68, 0, 0);
+  }
+
+  p {
+    color: rgb(152, 152, 152)
+  }
+
+  #intro {
+    color: white;
+  }
+
+  #Before,
+  #After {
+    color: white;
+    font-family: times;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+  }
+</style>
+
+<head>
+  <title>XML 2 Jacob Stevens</title>
+</head>
+
+<body>
+  <p><b>Before the adding barcodes and new dates</b></p>
+  <pre id="Before"></pre>
+  <br />
+  <p>
+    <b>After the adding barcodes and new dates</b>
+  </p>
+  <pre id="After"></pre>
+
+  </p>
+  <script>
+    var xmlreq = new XMLHttpRequest();
+    xmlreq.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("Before").innerHTML = this.responseText;
+        init(this);
+      }
+    }
+
+    function init(xml) {
+      var xml2 = xml.responseXML;
+      var bookamt = xml2.getElementsByTagName('book');
+      //Change Year start
+      var year = xml2.getElementsByTagName('year');
+      for (var i = 0; i < bookamt.length; i++) {
+        year[i].innerHTML = (bookamt[i].getElementsByTagName('year')[0]).childNodes[0].nodeValue-10;
+      }
+      //Change Year End
+
+      //Add barcode Start
+      var initbarcodenum = 1001;
+      var txt = "";
+      for (var i = 0; i < bookamt.length; i++) {
+        var createbar = xml2.createElement("barcode");
+        txt = "00000000" + initbarcodenum.toString();
+        var txtnode = xml2.createTextNode(txt);
+        //createbar.appendChild("");
+        createbar.appendChild(txtnode);
+        bookamt[i].appendChild(createbar);
+        initbarcodenum++;
+      }
+      //Add Barcode End;
+      document.getElementById('After').innerHTML = //xmlreq.responseText;
+        (new XMLSerializer()).serializeToString(xmlreq.responseXML);
+    }
+    xmlreq.open("GET", "books.xml", true);
+    xmlreq.send();
+  </script>
+</body>
+
+</html>
