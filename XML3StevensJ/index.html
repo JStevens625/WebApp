@@ -10,13 +10,12 @@
     color: white;
   }
 
-  #xmltext {
+  #Before, #After {
     color: white;
     font-family: times;
   }
-  button{
-    display: block;
-    margin: auto;
+  h1{
+    Color:rgb(56, 20, 108)
   }
 </style>
 
@@ -25,28 +24,67 @@
 </head>
 
 <body>
-  <button onclick="init()">Change XML</button>
-  <pre id="xmltext"></pre>
+  <h1><b>Before Changes:</b></h1>
+  <pre id="Before"></pre>
+  <h1><b>After Changes:</b></h1>
+  <pre id="After"></pre>
   <script>
     var xmlreq = new XMLHttpRequest();
     xmlreq.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("xmltext").innerHTML =
+        document.getElementById("Before").innerHTML =
           this.responseText;
+          init(this);
       }
     }
     xmlreq.open("GET", "breakfast.xml", true);
     xmlreq.send();
 
-    function init() {
-      changefirst();
-      increase10();
-    }
-    function changefirst(){
-    
-    }
-    function increase10(){
+    function init(xml) {
+      x = xml.responseXML;
+      // Begin Change First Action with only replaceChild()
 
+      //Replace Belgian Waffle to Yiddish Bagel
+      var b = x.getElementsByTagName('food')[0];
+      var a = x.getElementsByTagName('name')[0];
+      var c = x.getElementsByTagName('price')[0];
+      var d = x.getElementsByTagName('description')[0];
+      var e = x.getElementsByTagName('calories')[0];
+      var newName = x.createElement('name');
+      var txtnode0 = x.createTextNode("Yiddish Bagel");
+      newName.appendChild(txtnode0);
+      b.replaceChild(newName, a);
+      //Replace rest of elements
+      var txtnode1 = x.createTextNode("$3.15");
+      var txtnode2 = x.createTextNode("Toasted Yiddish Bagel Served with Cream Cheese!");
+      var txtnode3 = x.createTextNode("470");
+      var newPrice = x.createElement("price");
+      var newDes = x.createElement("description");
+      var newCal = x.createElement("calories");
+      newPrice.appendChild(txtnode1);
+      newDes.appendChild(txtnode2);
+      newCal.appendChild(txtnode3);
+      b.replaceChild(newPrice, c);
+      b.replaceChild(newDes, d);
+      b.replaceChild(newCal, e);
+      // End Change First Action with only replaceChild()
+
+      // Begin Increase price by 10%
+      var incprice = x.getElementsByTagName('price');
+      var foods = x.getElementsByTagName('food');
+      var nodeval;
+      var temp;
+      for (var i = 1; i < incprice.length; i++) {
+        nodeval = (foods[i].getElementsByTagName('price')[0]).childNodes[0].nodeValue.toString();
+        var strlen = nodeval.length;
+        temp = parseFloat(nodeval.substring(1,strlen));
+        temp = (temp*1.1).toFixed(2);
+        var txtnode = x.createTextNode(temp);
+      }
+
+      // End Increase price by 10%
+      document.getElementById('After').innerHTML =
+      (new XMLSerializer()).serializeToString(xmlreq.responseXML);
     }
   </script>
 </body>
