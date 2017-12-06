@@ -2,11 +2,11 @@
 <body>
   <?php
   class Alligator{
-    private $color
-    private $length
-    private $prey
+    private $color;
+    private $length;
+    private $prey;
     function Alligator(){
-      display()
+      display();
     }
   }
   ?>
