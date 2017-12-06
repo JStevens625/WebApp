@@ -1,4 +1,4 @@
-<!--Jacob Stevens COP 3834C.01 Web Application Development 11/27/17  PHP1-->
+<!--Jacob Stevens COP 3834C.01 Web Application Development 12/5/17  PHP2 -->
 <html>
 <style>
 body{
@@ -10,7 +10,7 @@ body{
 </head>
 <body>
 <?php
-  $arr = array("1","1");
+    $arr = array("1","1");
   $sum = 2;
   echo "<h2>Fibonacci Sequence:</h2>";
   echo "<p>";
